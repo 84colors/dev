@@ -1,0 +1,16 @@
+<model-viewer src="dji-glb.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" environment-image="d7822b43-e2ec-4cee-a000-cd60249bbb4d.hdr">
+    <button class="Hotspot" slot="hotspot-1" data-position="-0.012289678418532513m 1.2662111721667877m -0.0073398046704509804m" data-normal="-0.9999999999999962m 1.1746025095258812e-14m -8.742277956582886e-8m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">High-spectrum lens</div>
+    </button><button class="Hotspot" slot="hotspot-2" data-position="-0.010427223657882428m 0.2747057770983148m -0.09055125454033063m" data-normal="-0.7938150068488693m 0.4300335077143418m 0.4300336232719819m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Fine tune adjustments</div>
+    </button><button class="Hotspot" slot="hotspot-5" data-position="-0.005073190814110555m 0.7732258108279134m -0.18220675275043316m" data-normal="-1m 0m 0m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">High-definition screen</div>
+    </button><button class="Hotspot" slot="hotspot-6" data-position="0.30194994357883037m 0.7981711642992139m 0.0530161571960312m" data-normal="0.9966031802255302m 0.0028845202591761565m 0.0823029811564201m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Large battery</div>
+    </button><button class="Hotspot" slot="hotspot-7" data-position="0.4032749814632062m 1.3071467438274955m 0.021566485872780077m" data-normal="0.999998426226736m 0.0015861196953450604m 0.000794838577055886m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">360 adjustable pivot</div>
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+</model-viewer>
