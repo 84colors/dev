@@ -2,6 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 //Get model-viewer with ID of model
 const mv = document.querySelector("#model");
+const mvJ = $("#model");
 
 //Set initial camera view
 const camTargetInit =
@@ -15,6 +16,9 @@ const hotspotsInit = $(".hotspot-init");
 const hotspotsPcb = $(".hotspot-pcb");
 const hotspotShowPcb = $(".hotspot-show-pcb");
 const hotspotZoom = $(".btn-zoom");
+const textBox = $(".text-box");
+const textBoxTitle = $(".text-header");
+const textBoxText = $(".text-body");
 
 let resetCam = true;
 let zoomedInPCB = true;
@@ -28,8 +32,13 @@ hotspotZoom.hide();
 hotspotsInit.on("click", function () {
     let camOrbit = this.dataset.orbit;
     let camTarget = this.dataset.target;
+    let pointText = this.dataset.text;
+    let pointHeader = $(this).find(".HotspotAnnotation").text();
+
     //If camera is reset, then update it with hotspot info
     if (resetCam == true) {
+        mvJ.attr("interpolation-decay", "300");
+
         mv.cameraTarget = camTarget;
         mv.cameraOrbit = camOrbit;
         resetCam = false;
@@ -38,6 +47,8 @@ hotspotsInit.on("click", function () {
         hotspotsInit.hide();
         $(this).show();
     } else {
+        mvJ.attr("interpolation-decay", "200");
+
         mv.cameraTarget = camTargetInit;
         mv.cameraOrbit = camOrbitInit;
         resetCam = true;
@@ -47,15 +58,24 @@ hotspotsInit.on("click", function () {
     }
     //Toggle class of dot
     $(this).toggleClass("is-active");
+
+    if (!$(this).hasClass("hotspot-show-pcb")) {
+        textBoxTitle.text(pointHeader);
+        textBoxText.text(pointText);
+        textBox.toggleClass("is-active");
+    }
 });
 
 //For PCB ones
 hotspotsPcb.on("click", function () {
     let camOrbit = this.dataset.orbit;
     let camTarget = this.dataset.target;
+    let pointText = this.dataset.text;
+    let pointHeader = $(this).find(".HotspotAnnotation").text();
 
     //If camera is reset, then update it with hotspot info
     if (zoomedInPCB == true) {
+        mvJ.attr("interpolation-decay", "300");
         mv.cameraTarget = camTarget;
         mv.cameraOrbit = camOrbit;
         zoomedInPCB = false;
@@ -64,15 +84,21 @@ hotspotsPcb.on("click", function () {
         hotspotsPcb.hide();
         $(this).show();
     } else {
+        mvJ.attr("interpolation-decay", "200");
         mv.cameraTarget = camTargetInit;
         mv.cameraOrbit = camOrbitPCB;
         zoomedInPCB = true;
 
         //Show hotspots
         hotspotsPcb.show();
+
+        //Hide text box
     }
     //Toggle class of dot
     $(this).toggleClass("is-active");
+    textBoxTitle.text(pointHeader);
+    textBoxText.text(pointText);
+    textBox.toggleClass("is-active");
 });
 
 // --------------------
@@ -85,15 +111,14 @@ mv.addEventListener("load", (e) => {
 
     $(".hotspot-zoom").on("click", function () {
         if (isOpaque) {
-            console.log("first");
             ball.setAlphaMode("BLEND");
             ball.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.0]);
             isOpaque = false;
             hotspotsInit.hide();
             hotspotsPcb.show();
             hotspotZoom.show();
+            mvJ.attr("interpolation-decay", "300");
         } else {
-            console.log("second");
             ball.setAlphaMode("OPAQUE");
             ball.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
             isOpaque = true;
@@ -101,14 +126,21 @@ mv.addEventListener("load", (e) => {
             hotspotsInit.show();
             hotspotsPcb.hide();
             hotspotZoom.hide();
+            hotspotsPcb.removeClass("is-active");
             hotspotShowPcb.removeClass("is-active");
+
+            mvJ.attr("interpolation-decay", "200");
+
+            zoomedInPCB = true;
 
             //Reset camera
             mv.cameraTarget = camTargetInit;
             mv.cameraOrbit = camOrbitInit;
             resetCam = true;
+
+            //Hide text info
+            textBox.removeClass("is-active");
         }
-        console.log("initial view");
     });
 });
 
@@ -147,8 +179,6 @@ mv.addEventListener("load", (e) => {
             $(".hotspot-init").show();
         },
     });
-
-    // console.log(setAlpha.value);
 });
 
 // --------------------
