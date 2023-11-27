@@ -6,16 +6,26 @@ const mv = document.querySelector("#model");
 //Set initial camera view
 const camTargetInit =
     "0.10275006294250488m -0.01528758555650711m 0.000018998980522155762m";
-const camOrbitInit =
-    "0.5235987755982988rad 0.9599310885968813rad 8.854758152403196m";
+const camOrbitInit = "-30deg 70deg 100%";
+const camOrbitPCB = "-30deg 70deg 60%";
+// const camOrbitInit =
+//     "0.5235987755982988rad 0.9599310885968813rad 8.854758152403196m";
+
+const hotspotsInit = $(".hotspot-init");
+const hotspotsPcb = $(".hotspot-pcb");
+const hotspotShowPcb = $(".hotspot-show-pcb");
+const hotspotZoom = $(".btn-zoom");
 
 let resetCam = true;
+let zoomedInPCB = true;
+
 $(".Hotspot").hide();
+hotspotZoom.hide();
 
 // --------------------
 // Change camera target on click
 // --------------------
-$(".Hotspot").on("click", function () {
+hotspotsInit.on("click", function () {
     let camOrbit = this.dataset.orbit;
     let camTarget = this.dataset.target;
     //If camera is reset, then update it with hotspot info
@@ -25,7 +35,7 @@ $(".Hotspot").on("click", function () {
         resetCam = false;
 
         //Hide hotspots except active
-        $(".Hotspot").hide();
+        hotspotsInit.hide();
         $(this).show();
     } else {
         mv.cameraTarget = camTargetInit;
@@ -33,33 +43,72 @@ $(".Hotspot").on("click", function () {
         resetCam = true;
 
         //Show hotspots
-        $(".Hotspot").show();
+        hotspotsInit.show();
+    }
+    //Toggle class of dot
+    $(this).toggleClass("is-active");
+});
+
+//For PCB ones
+hotspotsPcb.on("click", function () {
+    let camOrbit = this.dataset.orbit;
+    let camTarget = this.dataset.target;
+
+    //If camera is reset, then update it with hotspot info
+    if (zoomedInPCB == true) {
+        mv.cameraTarget = camTarget;
+        mv.cameraOrbit = camOrbit;
+        zoomedInPCB = false;
+
+        //Hide hotspots except active
+        hotspotsPcb.hide();
+        $(this).show();
+    } else {
+        mv.cameraTarget = camTargetInit;
+        mv.cameraOrbit = camOrbitPCB;
+        zoomedInPCB = true;
+
+        //Show hotspots
+        hotspotsPcb.show();
     }
     //Toggle class of dot
     $(this).toggleClass("is-active");
 });
 
 // --------------------
-// Hide dome on click
+// Hide case on click
 // --------------------
 mv.addEventListener("load", (e) => {
     let isOpaque = true;
     // console.log(mv.model);
-    const ball = mv.model.getMaterialByName("Dome");
+    const ball = mv.model.getMaterialByName("MergedBakeCase_Baked");
 
-    $('.Hotspot[slot="hotspot-1"]').on("click", function () {
+    $(".hotspot-zoom").on("click", function () {
         if (isOpaque) {
             console.log("first");
             ball.setAlphaMode("BLEND");
-            ball.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.01]);
+            ball.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.0]);
             isOpaque = false;
+            hotspotsInit.hide();
+            hotspotsPcb.show();
+            hotspotZoom.show();
         } else {
             console.log("second");
             ball.setAlphaMode("OPAQUE");
             ball.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
             isOpaque = true;
+
+            hotspotsInit.show();
+            hotspotsPcb.hide();
+            hotspotZoom.hide();
+            hotspotShowPcb.removeClass("is-active");
+
+            //Reset camera
+            mv.cameraTarget = camTargetInit;
+            mv.cameraOrbit = camOrbitInit;
+            resetCam = true;
         }
-        console.log("yep");
+        console.log("initial view");
     });
 });
 
@@ -73,26 +122,29 @@ mv.addEventListener("load", (e) => {
     //Animation
     const playAnim = () => {
         if (mv.paused) {
-            // mv.play({ animationName: "Animation", repetitions: 1 });
+            mv.play({ animationName: "Animation", repetitions: 1 });
             // domeMat.setAlphaMode("BLEND");
         } else {
             mv.pause();
         }
     };
+
+    //GSAP initial animation
     const tlSpin = gsap.timeline();
 
     tlSpin.to(mv, {
         duration: 4,
-        ease: Power3.easeIn,
+        ease: Power2.easeInOut,
         attr: {
-            ["camera-orbit"]: "30deg 55deg 130%",
+            ["camera-orbit"]: "-30deg 70deg 100%",
         },
         onStart: function () {
+            playAnim();
             console.log("play");
         },
         onComplete: function () {
             console.log("finish");
-            $(".Hotspot").show();
+            $(".hotspot-init").show();
         },
     });
 
