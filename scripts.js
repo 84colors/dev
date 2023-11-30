@@ -108,11 +108,14 @@ mv.addEventListener("load", (e) => {
     let isOpaque = true;
     // console.log(mv.model);
     const ball = mv.model.getMaterialByName("MergedBakeCase_Baked");
+    const logo = mv.model.getMaterialByName("SVGMat.001");
 
     $(".hotspot-zoom").on("click", function () {
         if (isOpaque) {
             ball.setAlphaMode("BLEND");
+            logo.setAlphaMode("BLEND");
             ball.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.0]);
+            logo.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.0]);
             isOpaque = false;
             hotspotsInit.hide();
             hotspotsPcb.show();
@@ -121,6 +124,8 @@ mv.addEventListener("load", (e) => {
         } else {
             ball.setAlphaMode("OPAQUE");
             ball.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
+            logo.setAlphaMode("OPAQUE");
+            logo.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
             isOpaque = true;
 
             hotspotsInit.show();
