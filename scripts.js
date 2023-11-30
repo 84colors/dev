@@ -7,7 +7,7 @@ const mvJ = $("#model");
 //Set initial camera view
 const camTargetInit =
     "0.10275006294250488m -0.01528758555650711m 0.000018998980522155762m";
-const camOrbitInit = "-30deg 70deg 100%";
+const camOrbitInit = "-30deg 70deg 120%";
 const camOrbitPCB = "-30deg 70deg 60%";
 // const camOrbitInit =
 //     "0.5235987755982988rad 0.9599310885968813rad 8.854758152403196m";
