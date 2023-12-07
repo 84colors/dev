@@ -35,7 +35,7 @@ hotspotsInit.on("click", function () {
     let pointHeader = $(this).find(".HotspotAnnotation").text();
 
     //Set different orbit on mobile
-    const mobileOrbit = $(this).attr("data-orbitMobile");
+    const mobileOrbit = $(this).attr("data-orbitmobile");
     if (windowWidth < 700 && mobileOrbit) {
         camOrbit = mobileOrbit;
     }
@@ -81,7 +81,7 @@ hotspotsPcb.on("click", function () {
     let pointHeader = $(this).find(".HotspotAnnotation").text();
 
     //Set different orbit on mobile
-    const mobileOrbit = $(this).attr("data-orbitMobile");
+    const mobileOrbit = $(this).attr("data-orbitmobile");
     if (windowWidth < 700 && mobileOrbit) {
         camOrbit = mobileOrbit;
     }
