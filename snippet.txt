@@ -1,11 +1,18 @@
-<model-viewer src="dji-glb.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" shadow-softness="1" environment-image="dji-hdr.hdr">
-    <button class="Hotspot" slot="hotspot-1" data-position="-0.005073276284587758m 0.7972180641281545m 0.19022810764782838m" data-normal="-0.9999999884025459m 0.000133726288821716m -0.00007288475963213488m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">High-definition screen</div>
-    </button><button class="Hotspot" slot="hotspot-2" data-position="-0.012289675542040255m 1.2882619431969826m -0.04024303983417801m" data-normal="-0.9999999999999963m 1.1746025100856403e-14m -8.742277956582882e-8m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Ultra focal lens</div>
-    </button><button class="Hotspot" slot="hotspot-3" data-position="-0.00725175931440572m 0.2930396847840437m -0.11562790427836594m" data-normal="-0.6946659912703186m -0.37596566764600065m -0.6132609373862995m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">360 controls</div>
-    </button><button class="Hotspot" slot="hotspot-4" data-position="0.2988374902180877m 0.5524428755507358m -0.059174707927879926m" data-normal="0.9965652492126498m 0.0010308199237604916m -0.08280483966540882m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Extra-large battery</div>
+<model-viewer src="test04.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="0" environment-image="prod-hdri.hdr" shadow-softness="1">
+    <button class="Hotspot" slot="hotspot-1" data-surface="270 0 22 5 16 0.514 0.331 0.155" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">one</div>
+    </button><button class="Hotspot" slot="hotspot-2" data-surface="0 0 350 87 175 0.514 0.215 0.271" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">two</div>
+    </button><button class="Hotspot" slot="hotspot-3" data-surface="233 0 11 5 16 0.823 0.035 0.143" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">three</div>
+    </button><button class="Hotspot" slot="hotspot-4" data-surface="267 0 1601 1602 11 0.123 0.454 0.424" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">four</div>
+    </button><button class="Hotspot" slot="hotspot-5" data-surface="330 0 16 22 11 0.601 0.230 0.168" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">five</div>
+    </button><button class="Hotspot" slot="hotspot-6" data-surface="369 0 539 545 542 0.488 0.476 0.036" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">six</div>
+    </button><button class="Hotspot" slot="hotspot-7" data-surface="266 0 18 7 1 0.336 0.115 0.549" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">seven
+        </div>
     </button>
 </model-viewer>

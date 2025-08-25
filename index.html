@@ -1,26 +1,96 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>&lt;model-viewer&gt; template</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="./styles.css" rel="stylesheet"/>
-  </head>
-  <body>
+    <link type="text/css" href="./styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- <div class="empty"></div> -->
     <!-- <model-viewer> HTML element -->
-    <model-viewer src="dji-glb.glb" ar ar-modes="webxr scene-viewer quick-look" disable-pan camera-controls poster="poster.webp" shadow-intensity="1" shadow-softness="1" environment-image="dji-hdr.hdr">
-      <button class="Hotspot" slot="hotspot-1" data-position="-0.005073276284587758m 0.7972180641281545m 0.19022810764782838m" data-normal="-0.9999999884025459m 0.000133726288821716m -0.00007288475963213488m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">High-definition screen</div>
-      </button><button class="Hotspot" slot="hotspot-2" data-position="-0.012289675542040255m 1.2882619431969826m -0.04024303983417801m" data-normal="-0.9999999999999963m 1.1746025100856403e-14m -8.742277956582882e-8m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">Ultra focal lens</div>
-      </button><button class="Hotspot" slot="hotspot-3" data-position="-0.00725175931440572m 0.2930396847840437m -0.11562790427836594m" data-normal="-0.6946659912703186m -0.37596566764600065m -0.6132609373862995m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">360 controls</div>
-      </button><button class="Hotspot" slot="hotspot-4" data-position="0.2988374902180877m 0.5524428755507358m -0.059174707927879926m" data-normal="0.9965652492126498m 0.0010308199237604916m -0.08280483966540882m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">Extra-large battery</div>
-      </button>
-    </model-viewer>  
+    <model-viewer id='model' src="spider-05.21-v1.glb" camera-controls camera-orbit="-62.02deg 45deg 100%"
+                  field-of-view="30deg" shadow-intensity="0" interaction-prompt-threshold=7000 interpolation-decay="100" disable-pan
+                  disable-zoom environment-image="https://84colors.github.io/dev/prod-hdri1.hdr" shadow-softness="1"
+                  tone-mapping="commerce">
+        <button class="Hotspot hotspot-pcb" slot="hotspot-1" data-orbit="160deg 120deg 60%" data-text="Stay connected with outputs for ethernet, video and audio. The Spider’s LIDAR (LIght Detection And Ranging) sensor detects how far away the subject is
+        by using infrared light and measuring the time of flight"
+                data-position="-0.0057624330998794215m -0.5716520547866821m -1.395352384176155m" data-normal="0m -1m 0m"
+                data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Supercap for power protection</div>
+        </button><button class="Hotspot hotspot-pcb" slot="hotspot-2" data-orbit="60deg 130deg 60%" data-text="Stay connected with outputs for ethernet, video and audio. The Spider’s LIDAR (LIght Detection And Ranging) sensor detects how far away the subject is
+        by using infrared light and measuring the time of flight"
+                data-position="0.9868512531569693m -0.08345497462168922m 0.9072470656713463m"
+                data-normal="0.8072362376061945m -0.5709484580717213m 0.14962457993564993m" data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">GPS receiver</div>
+        </button><button class="Hotspot hotspot-pcb" slot="hotspot-3" data-orbit="-30deg 40deg 60%"
+                data-text="The Spider’s LIDAR (LIght Detection And Ranging) sensor detects how far away the subject is
+        by using infrared light and measuring the time of flight. Stay connected with outputs for ethernet, video and audio." data-position="0.02796490065036017m 0.10327778756618583m 1.363561499471821m"
+                data-normal="0m 1m 0m" data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">LTE(M) antena</div>
+        </button> </button><button class="Hotspot hotspot-pcb" slot="hotspot-10" data-orbit="40deg 35deg 50%"
+                data-text="The Spider’s LIDAR (LIght Detection And Ranging) sensor detects how far away the subject is
+        by using infrared light and measuring the time of flight. Stay connected with outputs for ethernet, video and audio." data-position="0.3273440181359921m 0.03584985301131424m 0.753089381663769m"
+                data-normal="0m 1m 0m" data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">LTE(M) connectivity</div>
+        </button><button class="Hotspot hotspot-pcb" slot="hotspot-5" data-orbit="20deg 40deg 60%"
+                data-text="Stay connected with outputs for ethernet, video and audio"
+                data-position="0.665438808261839m 0.15004419721662998m -0.49874246512134984m" data-normal="0m 1m 0m"
+                data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Hi-res MIMO radar</div>
+        </button><button class="Hotspot hotspot-pcb" slot="hotspot-4" data-orbit="30deg 40deg 60%" data-text="Stay connected with outputs for ethernet, video and audio. It’ll help you set the ideal lens focus
+        distance for amazing depth of field."
+                data-position="0.9075832791342329m 0.1850921893492341m -0.1123752391685201m" data-normal="0m 1m 0m"
+                data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">On-board processing</div>
+        </button><button class="Hotspot hotspot-pcb" slot="hotspot-6" data-orbit="-47deg 47deg 40%" data-text="The Spider’s LIDAR (LIght Detection And Ranging) sensor detects how far away the subject is
+        by using infrared light and measuring the time of flight to the subject. It’ll help you set the ideal lens focus
+        distance for amazing depth of field."
+                data-position="-0.6140765391573794m 0.5645957216620445m -0.13513018517123m" data-normal="0m 1m 0m"
+                data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Narrow Beam Radar</div>
+        </button>
+        <button class="Hotspot hotspot-init hotspot-zoom hotspot-show-pcb" slot="hotspot-7" data-text="The Spider’s LIDAR (LIght Detection And Ranging) sensor detects how far away the subject is
+        by using infrared light and measuring the time of flight to the subject. It’ll help you set the ideal lens focus
+        distance for amazing depth of field."
+                data-orbit="-0.5764747594920147rad 0.7527536497663223rad 9.547315204091953m"
+                data-position="-0.9140765391573794m 0.005092183492341m 1.2640246152877808m" data-normal="0m 1m 0m"
+                data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Fully featured components</div>
+        </button>
+        <button class="Hotspot hotspot-init" slot="hotspot-8"
+                data-orbit="-0.24426114149416298rad 1.9170779562373306rad 13.393693037936613m" data-text="Stay connected with outputs for ethernet, video and audio. It’ll help you set the ideal lens focus
+        distance for amazing depth of field."
+                data-position="0.47776568670361463m -1.6884814345578851m 1.7640246152877808m" data-normal="0m 0m 1m"
+                data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Case with outputs</div>
+        </button>
+        <button class="Hotspot hotspot-init" slot="hotspot-9" data-text="Operate as a stand-alone device in level-mode. It’ll help you set the ideal lens focus
+        distance for amazing depth of field."
+                data-orbit="1.0548796462976044rad 1.4431775353178078rad 10.231451307081972m"
+                data-position="0.47776568670361463m -1.0884814345578851m -0.1123752391685201m" data-normal="0m 0m 1m"
+                data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Battery power option</div>
+        </button>
+        <button class="btn-zoom hotspot-zoom">Back to overview</button>
+        <div class="text-box">
+            <div class="text-header">Battery power option</div>
+            <div class="text-body">The Spider’s LIDAR (LIght Detection And Ranging) sensor detects how far away the subject is
+                by using infrared light and measuring the time of flight to the subject. It’ll help you set the ideal lens focus
+                distance for amazing depth of field.</div>
+        </div>
+    </model-viewer>
     <!-- Loads <model-viewer> for browsers: -->
+    <!-- //SSR effect -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js"></script>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="module" src="scripts.js"></script>
+</body>
+
 </html>

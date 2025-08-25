@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- <div class="empty"></div> -->
+    <!-- <model-viewer> HTML element -->
+    <model-viewer id='model' src="test07.glb" disable-pan disable-zoom camera-controls camera-orbit="-44deg 83deg 120%"
+        shadow-intensity="0" interpolation-decay="100" environment-image="prod-hdri.hdr" shadow-softness="1">
+        <button class="Hotspot" slot="hotspot-1"
+            data-orbit="-0.8652340500884015rad 0.8753141247331258rad 7.08547978426015m"
+            data-position="-0.5460443882184165m 0.558663122355938m -0.3067975932873973m" data-normal="0m 1m 0m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">CPU</div>
+        </button><button class="Hotspot" slot="hotspot-2"
+            data-orbit="-0.37666445804275817rad 0.5458366191752061rad 7.257116567502141m"
+            data-position="0.9981608710557832m 0.1850921893492341m -0.11429380261455208m" data-normal="0m 1m 0m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Sensor</div>
+        </button><button class="Hotspot" slot="hotspot-3" data-orbit="27deg 56deg 7.08547978426015m"
+            data-position="0.3643272890211871m 0.09604468010365963m 1.3548606639399832m" data-normal="0m 1m 0m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Heatsink</div>
+        </button><button class="Hotspot" slot="hotspot-5"
+            data-orbit="3.7812514844272096rad 2.748893571891069rad 8.854758152403196m"
+            data-position="0.8337109845086319m -0.27312093414366245m -1.2473907229141215m" data-normal="0m -1m 0m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Battery</div>
+        </button><button class="Hotspot" slot="hotspot-6"
+            data-orbit="2.5362753174427373rad 2.748893571891069rad 7.08547978426015m"
+            data-position="-0.09486246343479027m -0.5716520547866812m -1.3519470149442157m" data-normal="0m -1m 0m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Connector</div>
+        </button>
+    </model-viewer>
+    <!-- Loads <model-viewer> for browsers: -->
+    <!-- //SSR effect -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="module" src="scripts.js"></script>
+</body>
+
+</html>

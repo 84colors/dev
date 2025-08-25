@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 //Get model-viewer with ID of model
 const mv = document.querySelector("#model");
@@ -8,7 +8,7 @@ const mvJ = $("#model");
 const camTargetInit =
     "0.10275006294250488m -0.01528758555650711m 0.000018998980522155762m";
 const camOrbitInit = "-30deg 70deg 120%";
-const camOrbitPCB = "-30deg 70deg 60%";
+const camOrbitPCB = "-30deg 70deg 70%";
 // const camOrbitInit =
 //     "0.5235987755982988rad 0.9599310885968813rad 8.854758152403196m";
 
@@ -173,7 +173,8 @@ mv.addEventListener("load", (e) => {
         duration: 4,
         ease: Power2.easeInOut,
         attr: {
-            ["camera-orbit"]: "-30deg 70deg 100%",
+            ["camera-orbit"]: "-30deg 70deg 120%",
+            // ["field-of-view"]: "30deg",
         },
         onStart: function () {
             playAnim();
